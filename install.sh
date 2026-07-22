@@ -32,8 +32,10 @@ for mapping in "${MAPPINGS[@]}"; do
   [ -d "$src" ] || continue
   for item in "$src"/*; do
     name="$(basename "$item")"
-    [ "$name" = ".gitkeep" ] && continue
+    [ "$name" = ".gitkeep" ] && continue  # placeholder for empty dirs, not real content
     target="$dst/$name"
+    # a conflict is real content sitting where our symlink would go:
+    # exists AND is not already a symlink (our own links are never conflicts)
     [ -e "$target" ] && [ ! -L "$target" ] && CONFLICTS+=("$target")
   done
 done
@@ -60,11 +62,14 @@ for mapping in "${MAPPINGS[@]}"; do
     [ "$name" = ".gitkeep" ] && continue
     target="$dst/$name"
     if [ -L "$target" ]; then
+      # already a symlink (ours or stale) — always safe to overwrite
       ln -sfn "$item" "$target"
       echo "linked $target -> $item"
     elif [ -e "$target" ]; then
+      # real content: only touch it if the conflict pass got a yes
       if [ "$BACKUP" -eq 1 ]; then
         backup="$target.bak"
+        # avoid clobbering a previous .bak from an earlier run
         [ -e "$backup" ] && backup="$target.bak.$(date +%s)"
         mv "$target" "$backup"
         ln -s "$item" "$target"
@@ -73,6 +78,7 @@ for mapping in "${MAPPINGS[@]}"; do
         echo "skipped $target (local content kept, not backed up)"
       fi
     else
+      # nothing there yet — plain link
       ln -s "$item" "$target"
       echo "linked $target -> $item"
     fi
