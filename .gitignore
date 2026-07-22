@@ -1,0 +1,13 @@
+## OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+## Local scratch space — drop drafts/experiments here, never committed
+scratch/
+*.local.*
+
+.no-mistakes.yaml
