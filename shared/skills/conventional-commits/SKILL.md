@@ -1,6 +1,6 @@
 ---
 name: conventional-commits
-description: Writes git commit messages following the Conventional Commits spec (type(scope): summary). Use whenever the user asks to commit changes or write a commit message.
+description: "Writes git commit messages following the Conventional Commits spec (type(scope): summary). Use whenever the user asks to commit changes or write a commit message."
 ---
 
 # Conventional Commits

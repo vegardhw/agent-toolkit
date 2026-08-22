@@ -22,3 +22,17 @@ brought up to parity by working the checklist.
 ### GitHub Copilot
 
 `copilot plugin install ponytail@ponytail`
+
+## no-mistakes ([kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes))
+
+Go CLI that gates `git push` behind an AI-driven validation pipeline (review,
+test, docs, lint) run in a disposable worktree; installs its own binary and
+Claude Code skill, so it can't be symlinked from this repo. Claude Code only
+today — no pi/Codex/Copilot support upstream.
+
+### Claude Code (and any shell)
+
+`curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh`
+
+Installs the `no-mistakes` binary to `~/.no-mistakes/bin/` (symlinked into
+`~/.local/bin/`) and its `/no-mistakes` skill to `~/.claude/skills/no-mistakes/`.
