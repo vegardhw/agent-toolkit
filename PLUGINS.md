@@ -27,13 +27,32 @@ brought up to parity by working the checklist.
 
 Marketplace with two plugins: `azure` (Azure MCP integration for cloud
 resource management/deployments) and `azure-kusto-graph-skills` (Kusto graph
-analysis, IRQL security hunting, graph viz for Azure Data Explorer).
+analysis, IRQL security hunting, graph viz for Azure Data Explorer). No pi
+support upstream.
+
+### pi
+
+Not supported upstream.
 
 ### Claude Code
 
 `/plugin marketplace add microsoft/azure-skills`
 `/plugin install azure@azure-skills`
 `/plugin install azure-kusto-graph-skills@azure-skills`
+
+### Codex
+
+`codex plugin marketplace add microsoft/azure-skills`
+
+Then browse/install via `/plugins` inside Codex (no non-interactive install
+command upstream).
+
+### GitHub Copilot
+
+`/plugin marketplace add microsoft/azure-skills`
+`/plugin install azure@azure-skills`
+
+(Copilot CLI uses the same `/plugin` syntax as Claude Code.)
 
 ## no-mistakes ([kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes))
 
