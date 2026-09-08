@@ -23,6 +23,18 @@ brought up to parity by working the checklist.
 
 `copilot plugin install ponytail@ponytail`
 
+## azure-skills ([microsoft/azure-skills](https://github.com/microsoft/azure-skills))
+
+Marketplace with two plugins: `azure` (Azure MCP integration for cloud
+resource management/deployments) and `azure-kusto-graph-skills` (Kusto graph
+analysis, IRQL security hunting, graph viz for Azure Data Explorer).
+
+### Claude Code
+
+`/plugin marketplace add microsoft/azure-skills`
+`/plugin install azure@azure-skills`
+`/plugin install azure-kusto-graph-skills@azure-skills`
+
 ## no-mistakes ([kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes))
 
 Go CLI that gates `git push` behind an AI-driven validation pipeline (review,
