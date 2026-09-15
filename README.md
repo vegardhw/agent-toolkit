@@ -19,6 +19,7 @@ pi/               Content specific to pi (github.com/earendil-works/pi-coding-ag
 claude-code/      Content specific to Claude Code
   skills/         Claude Code skills
   commands/       Slash commands
+  statusline/     cship (cship.dev) statusline config
 
 codex/            Content specific to OpenAI Codex CLI
   skills/         Codex-style prompt/skill files
@@ -58,6 +59,7 @@ re-run anytime after adding new content:
 | `pi/themes/`                | `~/.pi/agent/themes/`      |
 | `claude-code/skills/`       | `~/.claude/skills/`        |
 | `claude-code/commands/`     | `~/.claude/commands/`      |
+| `claude-code/statusline/`   | `~/.config/`               |
 | `codex/skills/`             | `~/.codex/skills/`         |
 
 `copilot/instructions/` isn't symlinked — Copilot instructions are per-project
