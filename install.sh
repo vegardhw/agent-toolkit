@@ -21,6 +21,7 @@ MAPPINGS=(
   "pi/themes:$HOME/.pi/agent/themes"
   "claude-code/skills:$HOME/.claude/skills"
   "claude-code/commands:$HOME/.claude/commands"
+  "claude-code/statusline:$HOME/.config"
   "codex/skills:$HOME/.codex/skills"
 )
 

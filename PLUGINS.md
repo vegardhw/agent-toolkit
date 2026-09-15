@@ -54,6 +54,28 @@ command upstream).
 
 (Copilot CLI uses the same `/plugin` syntax as Claude Code.)
 
+## cship ([cship.dev](https://cship.dev))
+
+Rust statusline binary for Claude Code (Starship-compatible). Its config
+(`claude-code/statusline/cship.toml`) is symlinked to `~/.config/cship.toml`
+by `install.sh`, but the binary itself and the `settings.json` registration
+still need a manual step.
+
+### Claude Code
+
+```bash
+curl -fsSL https://cship.dev/install.sh | bash
+```
+
+The installer wires `statusLine` in `~/.claude/settings.json` automatically.
+If installed via `cargo install cship` instead, add this manually:
+
+```json
+{ "statusLine": { "type": "command", "command": "cship" } }
+```
+
+Verify with `cship explain` / `cship --version`.
+
 ## no-mistakes ([kunchenguid/no-mistakes](https://github.com/kunchenguid/no-mistakes))
 
 Go CLI that gates `git push` behind an AI-driven validation pipeline (review,
