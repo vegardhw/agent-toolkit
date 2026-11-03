@@ -1,4 +1,4 @@
-# Vendored skills tracked by update.sh. Whitespace-separated:
+# Vendored skills tracked by sync-skills.sh. Whitespace-separated:
 #   name  github-repo  path-in-repo  ref (branch, tag or commit SHA)
 # Copied into shared/skills/<name>/. Pin a ref to a SHA to stop tracking latest.
 frontend-design       anthropics/claude-plugins-official  plugins/frontend-design/skills/frontend-design  main

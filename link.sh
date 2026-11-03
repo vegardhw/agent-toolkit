@@ -86,4 +86,4 @@ for mapping in "${MAPPINGS[@]}"; do
   done
 done
 
-echo "done. see PLUGINS.md for plugins that need manual install."
+echo "done. run ./plugins.sh to install plugins (see PLUGINS.md)."
