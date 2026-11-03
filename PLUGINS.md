@@ -90,8 +90,8 @@ today — no pi/Codex/Copilot support upstream.
 Installs the `no-mistakes` binary to `~/.no-mistakes/bin/` (symlinked into
 `~/.local/bin/`) and its `/no-mistakes` skill to `~/.claude/skills/no-mistakes/`.
 
-## frontend-design
+## Vendored skills
 
-Vendored into `shared/skills/frontend-design/` (symlinked per tool) from
-https://github.com/anthropics/claude-plugins-official/tree/a2e251d9b97b909bf728b3e84fc8d17e6aba0063/plugins/frontend-design
-(pinned to commit `a2e251d`; re-copy to update). Nothing to install.
+`frontend-design` and `swiftui-expert-skill` are copied into `shared/skills/`
+(symlinked per tool). Their upstream repo/path/ref live in `sources.tsv`;
+`./update.sh --skills` re-fetches them. Nothing to install.

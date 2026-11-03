@@ -75,3 +75,20 @@ command), so track those in [`PLUGINS.md`](PLUGINS.md) as a checklist instead.
 is a generic skill written once. `pi/skills/`, `claude-code/skills/`, and
 `codex/skills/` each contain a symlink to it — that's the write-once,
 link-everywhere pattern to copy for your own skills.
+
+## Updating
+
+`update.sh` pulls the latest of everything tracked here, then re-runs
+`install.sh`:
+
+```sh
+./update.sh              # vendored skills + marketplace plugins
+./update.sh --dry-run    # show what would run
+./update.sh --bins       # also re-run cship / no-mistakes installers (runs remote code)
+```
+
+Vendored skills are listed in [`sources.tsv`](sources.tsv) (repo, path, ref;
+default `main`, pin a commit SHA to stop tracking latest). They're re-copied
+into `shared/skills/` but never committed — review `git diff`, then commit.
+Plugins are updated via each tool's own CLI (pi, Claude Code); tools that
+aren't installed are skipped.
