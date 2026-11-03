@@ -16,3 +16,7 @@ azure	codex	manual	-	codex plugin marketplace add microsoft/azure-skills, then b
 azure	copilot	manual	-	/plugin marketplace add microsoft/azure-skills, then /plugin install azure@azure-skills	-
 cship	claude	remote	command -v cship	curl -fsSL https://cship.dev/install.sh | bash	curl -fsSL https://cship.dev/install.sh | bash
 no-mistakes	-	remote	command -v no-mistakes	curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh	curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh
+context7	pi	normal	pi list | grep -q context7-pi	pi install npm:@upstash/context7-pi	pi update --extension npm:@upstash/context7-pi
+context7	claude	normal	claude plugin list | grep -q context7@	claude plugin marketplace add upstash/context7; claude plugin install context7@context7-marketplace	claude plugin marketplace update context7-marketplace && claude plugin update context7@context7-marketplace
+context7	codex	manual	-	codex plugin marketplace add upstash/context7 (plugin lives in plugins/codex/context7)	-
+context7	copilot	manual	-	/plugin marketplace add upstash/context7, then /plugin install context7@context7-marketplace	-

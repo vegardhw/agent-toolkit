@@ -22,6 +22,7 @@ Re-running is safe: installed plugins are skipped, and rows added to
 |---|---|:-:|:-:|:-:|:-:|
 | [ponytail](https://github.com/DietrichGebert/ponytail) | Lazy-senior-dev mode: smallest change that solves the task | auto | auto | by hand | by hand |
 | [azure-skills](https://github.com/microsoft/azure-skills) | Azure MCP integration and Kusto graph skills | n/a | auto | by hand | by hand |
+| [context7](https://github.com/upstash/context7) | Up-to-date, version-specific library docs via a remote MCP server | auto | auto | by hand | by hand |
 | [cship](https://cship.dev) | Starship-compatible statusline binary | n/a | auto* | n/a | n/a |
 | [no-mistakes](https://github.com/kunchenguid/no-mistakes) | Gates `git push` behind an AI validation pipeline | n/a | auto* | n/a | n/a |
 
@@ -45,6 +46,16 @@ resources and deployments) and `azure-kusto-graph-skills` (Kusto graph
 analysis, IRQL security hunting, graph visualisation for Azure Data
 Explorer). Codex has no non-interactive install: add the marketplace, then
 browse and install through `/plugins` inside Codex.
+
+### context7
+
+Remote MCP server (`https://mcp.context7.com/mcp`) that pulls current docs and
+code examples for a library into the agent's context. Claude Code gets it as
+a plugin from the `upstash/context7` marketplace; pi gets the official
+`@upstash/context7-pi` extension. The Codex and Copilot commands aren't
+verified. An API key is optional but raises the rate limits; it isn't stored
+in this repo. Set it up with `npx ctx7 setup` or per the
+[Context7 docs](https://context7.com).
 
 ### cship
 
