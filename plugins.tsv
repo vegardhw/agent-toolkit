@@ -1,0 +1,18 @@
+# Plugins managed by plugins.sh. TAB-separated, use "-" for an empty field:
+#   name  tool  kind  check  install  update
+# tool:  CLI that must be on PATH ("-" = none needed)
+# kind:  normal = run install/update commands
+#        remote = pipes a remote script into a shell, always needs an explicit yes
+#        manual = install field is instructions only, plugins.sh just prints it
+# check: shell command, exit 0 = already installed
+# Add a row to roll a new plugin out to every machine on its next ./plugins.sh run.
+ponytail	pi	normal	pi list | grep -q DietrichGebert/ponytail	pi install git:github.com/DietrichGebert/ponytail	pi update --extension git:github.com/DietrichGebert/ponytail
+ponytail	claude	normal	claude plugin list | grep -q ponytail@ponytail	claude plugin marketplace add DietrichGebert/ponytail; claude plugin install ponytail@ponytail	claude plugin marketplace update ponytail && claude plugin update ponytail@ponytail
+ponytail	codex	manual	-	codex plugin marketplace add DietrichGebert/ponytail	-
+ponytail	copilot	manual	-	copilot plugin install ponytail@ponytail	-
+azure	claude	normal	claude plugin list | grep -q azure@azure-skills	claude plugin marketplace add microsoft/azure-skills; claude plugin install azure@azure-skills	claude plugin marketplace update azure-skills && claude plugin update azure@azure-skills
+azure-kusto-graph-skills	claude	normal	claude plugin list | grep -q azure-kusto-graph-skills@azure-skills	claude plugin marketplace add microsoft/azure-skills; claude plugin install azure-kusto-graph-skills@azure-skills	claude plugin marketplace update azure-skills && claude plugin update azure-kusto-graph-skills@azure-skills
+azure	codex	manual	-	codex plugin marketplace add microsoft/azure-skills, then browse and install via /plugins inside Codex	-
+azure	copilot	manual	-	/plugin marketplace add microsoft/azure-skills, then /plugin install azure@azure-skills	-
+cship	claude	remote	command -v cship	curl -fsSL https://cship.dev/install.sh | bash	curl -fsSL https://cship.dev/install.sh | bash
+no-mistakes	-	remote	command -v no-mistakes	curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh	curl -fsSL https://raw.githubusercontent.com/kunchenguid/no-mistakes/main/docs/install.sh | sh

@@ -44,10 +44,10 @@ per machine, run the installer, get all your skills everywhere.
 
 ```sh
 git clone https://github.com/vegardhw/agent-toolkit.git
-agent-toolkit/install.sh
+agent-toolkit/link.sh
 ```
 
-`install.sh` is idempotent (Linux and macOS) — it symlinks each folder's
+`link.sh` is idempotent (Linux and macOS) — it symlinks each folder's
 contents into the directory the corresponding tool reads from, and can be
 re-run anytime after adding new content:
 
@@ -67,7 +67,8 @@ re-run anytime after adding new content:
 project's `.github/` directory instead.
 
 Plugins/marketplace extensions can't be symlinked (they need an install
-command), so track those in [`PLUGINS.md`](PLUGINS.md) as a checklist instead.
+command), so `plugins.sh` installs them from `plugins.tsv`; see
+[`PLUGINS.md`](PLUGINS.md).
 
 ### Example
 
@@ -76,19 +77,18 @@ is a generic skill written once. `pi/skills/`, `claude-code/skills/`, and
 `codex/skills/` each contain a symlink to it — that's the write-once,
 link-everywhere pattern to copy for your own skills.
 
-## Updating
+## Scripts
 
-`update.sh` pulls the latest of everything tracked here, then re-runs
-`install.sh`:
+| Script | Does | Reads |
+|---|---|---|
+| `link.sh` | Symlinks skills/extensions/themes/commands into each tool's config dir | folders in this repo |
+| `plugins.sh` | Installs or updates plugins and binaries; asks per plugin, `--all` for no prompts | `plugins.tsv` |
+| `sync-skills.sh` | Re-fetches vendored skills from upstream (never commits) | `sources.tsv` |
 
-```sh
-./update.sh              # vendored skills + marketplace plugins
-./update.sh --dry-run    # show what would run
-./update.sh --bins       # also re-run cship / no-mistakes installers (runs remote code)
-```
+New machine: `./link.sh && ./plugins.sh`. Later, to get the latest:
+`./plugins.sh update && ./sync-skills.sh`, then review `git diff` and commit
+what you want to keep. Every script takes `--dry-run` except `link.sh`.
 
 Vendored skills are listed in [`sources.tsv`](sources.tsv) (repo, path, ref;
-default `main`, pin a commit SHA to stop tracking latest). They're re-copied
-into `shared/skills/` but never committed — review `git diff`, then commit.
-Plugins are updated via each tool's own CLI (pi, Claude Code); tools that
-aren't installed are skipped.
+default `main`, pin a commit SHA to stop tracking latest). Plugins that pipe a
+remote script into a shell (`cship`, `no-mistakes`) always ask first.
