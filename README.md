@@ -25,6 +25,7 @@ codex/            Content specific to OpenAI Codex CLI
   skills/         Codex-style prompt/skill files
 
 copilot/          Content specific to GitHub Copilot
+  skills/         SKILL.md packages for GitHub Copilot CLI's agent skills
   instructions/   .github/copilot-instructions.md style files
 ```
 
@@ -61,6 +62,7 @@ re-run anytime after adding new content:
 | `claude-code/commands/`     | `~/.claude/commands/`      |
 | `claude-code/statusline/`   | `~/.config/`               |
 | `codex/skills/`             | `~/.codex/skills/`         |
+| `copilot/skills/`           | `~/.copilot/skills/`       |
 
 `copilot/instructions/` isn't symlinked — Copilot instructions are per-project
 (`.github/copilot-instructions.md`), so copy the relevant file into a
