@@ -23,6 +23,7 @@ MAPPINGS=(
   "claude-code/commands:$HOME/.claude/commands"
   "claude-code/statusline:$HOME/.config"
   "codex/skills:$HOME/.codex/skills"
+  "copilot/skills:$HOME/.copilot/skills"
 )
 
 CONFLICTS=()
